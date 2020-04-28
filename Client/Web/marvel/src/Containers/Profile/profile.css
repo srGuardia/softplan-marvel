@@ -1,0 +1,89 @@
+.profile-container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+
+.profile-container .profile-header {
+	display: contents;
+}
+
+.profile-container .profile-header .profile-item {
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 280px;
+}
+
+.profile-container .profile-header .profile-item:hover {
+	cursor: pointer;
+	opacity: 80%;
+}
+
+.profile-container .series-container {
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+.profile-container .series-container h1 {
+	color: #e62538;
+	text-align: center;
+}
+
+.profile-container .series-container .series-details {
+	display: grid;
+	grid-column: auto;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 20px;
+}
+
+.profile-container .series-container .profile-footer {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.profile-container .series-container .profile-footer button {
+	width: 100px;
+	height: 30px;
+	color: #ffffff;
+	background: #2b7de9;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-bottom: 10px;
+	box-shadow: 0 5px 5px #d5d5d5;
+}
+
+.profile-container .profile-form-container form {
+	display: flex;
+	flex-direction: column;
+}
+
+.profile-container .profile-form-container .salvar {
+	width: 100px;
+	height: 30px;
+	color: #ffffff;
+	background: #009b1c;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-bottom: 10px;
+	box-shadow: 0 5px 5px #d5d5d5;
+	margin-top: 20px;
+}
+
+.profile-container .profile-form-container .fechar {
+	width: 100px;
+	height: 30px;
+	color: #ffffff;
+	background: #d30418;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-bottom: 10px;
+	box-shadow: 0 5px 5px #d5d5d5;
+}
