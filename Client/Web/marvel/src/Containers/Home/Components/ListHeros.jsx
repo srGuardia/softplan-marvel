@@ -2,7 +2,7 @@ import React from "react";
 
 import "../home.css";
 
-const ListaHerois = ({
+const ListHeros = ({
 	search,
 	heroes,
 	limit,
@@ -25,7 +25,11 @@ const ListaHerois = ({
 		<div className="marvel-container">
 			{heroes &&
 				heroes.map((hero, index) => (
-					<div className="marvel-cards" key={hero.id || index}>
+					<div
+						className="marvel-cards"
+						key={hero.id || index}
+						data-testid="marvel-cards"
+					>
 						<div className="marvel-content">
 							<div className="marvel-perfil">
 								<img
@@ -72,4 +76,4 @@ const ListaHerois = ({
 	</div>
 );
 
-export default ListaHerois;
+export default ListHeros;

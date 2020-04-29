@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from "react";
 import { connect } from "react-redux";
 
-import DetalhesProfile from "./Components/DetalhesProfile";
+import DetailsProfile from "./Components/DetailsProfile";
 import {
 	getHeroi,
 	listaSeries,
@@ -48,7 +48,7 @@ const ProfileContainer = ({
 			{loading ? (
 				<LoadingGlobal />
 			) : (
-				<DetalhesProfile
+				<DetailsProfile
 					returnHome={returnHome}
 					heroSpecific={heroSpecific}
 					series={series}

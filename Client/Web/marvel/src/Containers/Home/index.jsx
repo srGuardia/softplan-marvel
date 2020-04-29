@@ -8,7 +8,7 @@ import {
 	reset,
 	getHeroi,
 } from "../../Redux/Actions/marvelActions";
-import ListaHerois from "./Components/ListaHerois";
+import ListHeros from "./Components/ListHeros";
 
 const HomeContainer = ({
 	history,
@@ -64,7 +64,7 @@ const HomeContainer = ({
 			{loading ? (
 				<LoadingGlobal />
 			) : (
-				<ListaHerois
+				<ListHeros
 					search={search}
 					heroes={dataHerois}
 					limit={limit}

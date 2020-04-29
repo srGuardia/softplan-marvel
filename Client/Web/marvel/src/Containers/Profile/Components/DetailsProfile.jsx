@@ -4,7 +4,7 @@ import "../profile.css";
 import fundo_marvel from "../../../Assets/Capa/fundo_malvel.jpg";
 import FormHero from "../../../Components/Form";
 
-const DetalhesProfile = ({
+const DetailsProfile = ({
 	heroSpecific,
 	returnHome,
 	series,
@@ -54,4 +54,4 @@ const DetalhesProfile = ({
 	</div>
 );
 
-export default DetalhesProfile;
+export default DetailsProfile;
