@@ -2,15 +2,15 @@ import React from "react";
 
 import "../profile.css";
 import fundo_marvel from "../../../Assets/Capa/fundo_malvel.jpg";
+import FormHero from "../../../Components/Form";
 
 const DetalhesProfile = ({
 	heroSpecific,
 	returnHome,
 	series,
+	openCloseVisible,
+	display,
 	visible,
-	handleSubmit,
-	openVisible,
-	closeVisible,
 }) => (
 	<div className="profile-container">
 		<div className="profile-header">
@@ -21,37 +21,16 @@ const DetalhesProfile = ({
 					className="profile-item"
 					src={`${heroSpecific.thumbnail.path}/standard_fantastic.${heroSpecific.thumbnail.extension}`}
 					alt={heroSpecific.name}
-					onClick={openVisible}
+					onClick={() => openCloseVisible(!visible)}
 				/>
 			)}
 		</div>
 
 		<div
 			className="profile-form-container"
-			style={{ margin: "0 auto", marginTop: 100, display: visible }}
+			style={{ margin: "0 auto", marginTop: 100, display: display }}
 		>
-			<form>
-				{heroSpecific && (
-					<React.Fragment>
-						<label>Name:</label>
-						<input type="text" name="name" />
-
-						<label>Description:</label>
-						<input type="text" name="description" />
-
-						<button
-							htmlType="button"
-							className="salvar"
-							// onClick={(e) => handleSubmit(e, item.id)}
-						>
-							Salvar
-						</button>
-					</React.Fragment>
-				)}
-			</form>
-			<button type="button" className="fechar" onClick={closeVisible}>
-				X
-			</button>
+			<FormHero returnHome={returnHome} />
 		</div>
 
 		<div className="series-container">

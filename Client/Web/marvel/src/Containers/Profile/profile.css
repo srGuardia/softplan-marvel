@@ -63,6 +63,34 @@
 	flex-direction: column;
 }
 
+.profile-container .profile-form-container form input {
+	margin-bottom: 15px;
+	width: 400px;
+	height: 30px;
+	font-size: 14px;
+	color: #a09f9f;
+	padding-left: 10px;
+	border: none;
+	border-radius: 10px;
+}
+
+.profile-container .profile-form-container form textarea {
+	border: none;
+	width: 400px;
+	height: 150px;
+	border-radius: 10px;
+	padding-left: 5px;
+	text-align: left;
+	font-size: 14px;
+	color: #a09f9f;
+}
+
+.profile-container .profile-form-container form label {
+	font-size: 20px;
+	color: #d30418;
+	font-weight: 500;
+}
+
 .profile-container .profile-form-container .salvar {
 	width: 100px;
 	height: 30px;

@@ -6,6 +6,7 @@ import {
 	listaHerois,
 	heroName,
 	reset,
+	getHeroi,
 } from "../../Redux/Actions/marvelActions";
 import ListaHerois from "./Components/ListaHerois";
 
@@ -17,18 +18,28 @@ const HomeContainer = ({
 	total,
 	loading,
 	reset,
+	getHeroi,
+	heroSpecific,
 }) => {
 	const [limit, setLimit] = useState(20);
 	const [search, setSearch] = useState("");
 
 	const pageProfile = (id) => {
-		history.push(`/profile/${id}`);
+		if (heroSpecific === null) {
+			getHeroi(id);
+			history.push(`/profile/${id}`);
+		} else if (heroSpecific && heroSpecific.id === id) {
+			history.push(`/profile/${heroSpecific.id}`);
+		} else {
+			history.push(`/profile/${id}`);
+			getHeroi(id);
+		}
 		reset();
 	};
 
 	useEffect(() => {
-		listaHerois(limit);
-	}, [limit, listaHerois]);
+		dataHerois.length === 0 && listaHerois(limit);
+	}, [limit, listaHerois, dataHerois]);
 
 	const getLimitHeroes = async () => {
 		reset();
@@ -72,9 +83,12 @@ const mapStateToProps = (state) => {
 		loading: state.root.loading,
 		dataHerois: state.root.herois,
 		total: state.root.total,
+		heroSpecific: state.root.heroiSpecific,
 	};
 };
 
 export default memo(
-	connect(mapStateToProps, { listaHerois, heroName, reset })(HomeContainer)
+	connect(mapStateToProps, { listaHerois, heroName, reset, getHeroi })(
+		HomeContainer
+	)
 );

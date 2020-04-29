@@ -12,7 +12,7 @@ const initialValues = {
 	herois: [],
 	total: 0,
 	series: [],
-	heroiSpecific: [],
+	heroiSpecific: null,
 };
 
 export default function marvelReducer(state = initialValues, action) {
@@ -41,10 +41,17 @@ export default function marvelReducer(state = initialValues, action) {
 			};
 
 		case ATUALIZA_HEROI_SUCCESS: {
+			const newObj = Object.assign(state.heroiSpecific, action.dados);
+			const heroiList = state.herois;
+			const index = heroiList.findIndex((item) => item.id === newObj.id);
+
+			heroiList.splice(index, 1, newObj);
+
 			return {
 				...state,
 				loading: false,
-				// heroiSpecific:
+				herois: heroiList,
+				heroiSpecific: newObj,
 			};
 		}
 

@@ -20,38 +20,27 @@ const ProfileContainer = ({
 	listaSeries,
 	series,
 }) => {
-	const [visible, setVisible] = useState("none");
+	const [visible, setVisible] = useState(false);
+	const [display, setDisplay] = useState("none");
 
 	useEffect(() => {
 		reset();
 		const { id } = params;
-
-		getHeroi(id);
 		listaSeries(id);
 	}, [params, getHeroi, listaSeries, reset]);
 
 	const returnHome = () => {
 		history.goBack();
-		reset();
 	};
 
-	const openVisible = () => {
-		setVisible("block");
-	};
-
-	const closeVisible = () => {
-		setVisible("none");
-	};
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-
-		console.log(e.target);
-
-		const dados = {
-			name: e.target.value,
-			descricption: e.target.value,
-		};
+	const openCloseVisible = (value) => {
+		if (value) {
+			setVisible(true);
+			setDisplay("block");
+		} else {
+			setVisible(false);
+			setDisplay("none");
+		}
 	};
 
 	return (
@@ -63,10 +52,9 @@ const ProfileContainer = ({
 					returnHome={returnHome}
 					heroSpecific={heroSpecific}
 					series={series}
+					display={display}
 					visible={visible}
-					handleSubmit={handleSubmit}
-					openVisible={openVisible}
-					closeVisible={closeVisible}
+					openCloseVisible={openCloseVisible}
 				/>
 			)}
 		</React.Fragment>
@@ -74,7 +62,6 @@ const ProfileContainer = ({
 };
 
 const mapStateToProps = (state) => {
-	console.log("state", state);
 	return {
 		heroSpecific: state.root.heroiSpecific,
 		loading: state.root.loading,
